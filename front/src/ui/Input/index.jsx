@@ -1,11 +1,3 @@
-/**
- * @param {{
- *   value: string
- *   onChange: (e: import('react').ChangeEvent<HTMLInputElement>) => void
- *   placeholder?: string
- *   className?: string
- * }} props
- */
 export const Input = ({ value, onChange, placeholder, className = '' }) => {
     return (
         <input

@@ -1,7 +1,3 @@
-/**
- * @typedef {'primary' | 'neutral' | 'error' | 'ghost'} ButtonVariant
- */
-
 const styles = {
     primary: 'btn-primary text-primary-content',
     neutral: 'btn-neutral',
@@ -9,16 +5,6 @@ const styles = {
     ghost: 'btn-ghost',
 }
 
-/**
- * @param {{
- *   children: import('react').ReactNode
- *   variant?: ButtonVariant
- *   type?: 'button' | 'submit'
- *   onClick?: () => void
- *   disabled?: boolean
- *   className?: string
- * }} props
- */
 export const Button = ({
     children,
     variant = 'primary',

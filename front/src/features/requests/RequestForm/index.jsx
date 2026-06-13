@@ -8,8 +8,6 @@ export const RequestForm = ({ editingRequest, onDone }) => {
     const addRequest = useRequestStore((s) => s.addRequest)
     const updateRequest = useRequestStore((s) => s.updateRequest)
 
-    // Початкові значення беремо прямо з editingRequest. Коли в батьку
-    // зміниться key — компонент пересоздасться і ці значення підставляться знову.
     const [title, setTitle] = useState(editingRequest?.title ?? '')
     const [description, setDescription] = useState(
         editingRequest?.description ?? ''

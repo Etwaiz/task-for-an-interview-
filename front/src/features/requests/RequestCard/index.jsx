@@ -1,8 +1,7 @@
 import { Badge } from '@/ui/Badge'
+import { formatDateTime } from '@/utils/date'
 
 export const RequestCard = ({ request, showId, children }) => {
-    const date = new Date(request.createdAt).toLocaleString()
-
     return (
         <div className="bg-base-100 p-4 rounded-2xl shadow-sm flex flex-col gap-2">
             <div className="flex items-start justify-between gap-2">
@@ -13,7 +12,7 @@ export const RequestCard = ({ request, showId, children }) => {
             <p className="text-sm text-neutral">{request.description}</p>
 
             <div className="flex items-center justify-between text-xs text-neutral">
-                <span>{date}</span>
+                <span>{formatDateTime(request.createdAt)}</span>
                 {showId && <span>ID: {request.id.slice(0, 8)}</span>}
             </div>
 
