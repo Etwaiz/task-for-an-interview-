@@ -2,10 +2,10 @@ import { Button } from '@/ui/Button'
 
 export const ConfirmModal = ({
     open,
-    title = 'Підтвердження',
+    title,
     message,
-    confirmText = 'Видалити',
-    cancelText = 'Скасувати',
+    confirmText,
+    cancelText,
     onConfirm,
     onCancel,
 }) => {
@@ -20,7 +20,7 @@ export const ConfirmModal = ({
                 className="w-full max-w-sm rounded-2xl bg-base-100 p-6 shadow-xl"
                 onClick={(e) => e.stopPropagation()}
             >
-                <h3 className="text-lg font-semibold">{title}</h3>
+                {title && <h3 className="text-lg font-semibold">{title}</h3>}
 
                 {message && (
                     <p className="mt-2 text-sm text-base-content/70">
@@ -29,15 +29,11 @@ export const ConfirmModal = ({
                 )}
 
                 <div className="mt-6 flex justify-end gap-3">
-                    <Button 
-                        variant="ghost" 
-                        onClick={onCancel}>
-                            {cancelText}
+                    <Button variant="ghost" onClick={onCancel}>
+                        {cancelText}
                     </Button>
-                    <Button 
-                        variant="error" 
-                        onClick={onConfirm}>
-                            {confirmText}
+                    <Button variant="error" onClick={onConfirm}>
+                        {confirmText}
                     </Button>
                 </div>
             </div>

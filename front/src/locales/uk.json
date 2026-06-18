@@ -1,0 +1,45 @@
+{
+    "common": {
+        "cancel": "Скасувати"
+    },
+
+    "sort": {
+        "newest": "Новіші",
+        "oldest": "Старіші"
+    },
+
+    "status": {
+        "all": "Всі",
+        "new": "Нова",
+        "in progress": "В роботі",
+        "done": "Завершено"
+    },
+
+    "nextStatus": {
+        "new": "Взяти в роботу",
+        "in progress": "Завершити"
+    },
+
+    "userView": {
+        "title": "Мої заявки",
+        "edit": "Редагувати",
+        "delete": "Видалити",
+        "deleteModalTitle": "Видалити заявку?",
+        "deleteModalMessage": "Ви впевнені що хочете видалити заявку «{{title}}» ?"
+    },
+
+    "managerView": {
+        "title": "Усі заявки"
+    },
+
+    "requestForm": {
+        "newTitle": "Нова заявка",
+        "editTitle": "Редагувати заявку",
+        "titlePlaceholder": "Назва заявки",
+        "descPlaceholder": "Текст заявки",
+        "create": "Створити",
+        "save": "Зберегти",
+        "cancel": "Скасувати",
+        "errorRequired": "Заповніть обидва поля"
+    }
+}

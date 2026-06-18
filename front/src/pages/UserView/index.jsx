@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useRequestStore } from '@/store/useRequestStore'
 import { RequestForm } from '@/features/requests/RequestForm'
 import { RequestList } from '@/features/requests/RequestList'
@@ -7,8 +8,12 @@ import { SORT_OPTIONS } from '@/constants'
 import { Button } from '@/ui/Button'
 import { Select } from '@/ui/Select'
 import { ConfirmModal } from '@/ui/Modal'
+import { translateOptions } from '@/utils/translateOptions'
 
 export const UserView = () => {
+    const { t } = useTranslation()
+    const sortOptions = translateOptions(SORT_OPTIONS, t)
+
     const requests = useRequestStore((s) => s.requests)
     const deleteRequest = useRequestStore((s) => s.deleteRequest)
 
@@ -35,11 +40,13 @@ export const UserView = () => {
 
             <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between gap-3">
-                    <h2 className="text-xl font-semibold">Мої заявки</h2>
+                    <h2 className="text-xl font-semibold">
+                        {t('userView.title')}
+                    </h2>
                     <Select
                         value={sort}
                         onChange={(e) => setSort(e.target.value)}
-                        options={SORT_OPTIONS}
+                        options={sortOptions}
                     />
                 </div>
 
@@ -52,14 +59,14 @@ export const UserView = () => {
                                     variant="warning"
                                     onClick={() => setEditingRequest(req)}
                                 >
-                                    Редагувати
+                                    {t('userView.edit')}
                                 </Button>
                             )}
                             <Button
                                 variant="error"
                                 onClick={() => setDeletingRequest(req)}
                             >
-                                Видалити
+                                {t('userView.delete')}
                             </Button>
                         </>
                     )}
@@ -68,15 +75,17 @@ export const UserView = () => {
 
             <ConfirmModal
                 open={!!deletingRequest}
-                title="Видалити заявку?"
+                title={t('userView.deleteModalTitle')}
                 message={
                     deletingRequest
-                        ? `Ви впевнені що хочете видалити заявку «${deletingRequest.title}» ?`
+                        ? t('userView.deleteModalMessage', { title: deletingRequest.title })
                         : ''
                 }
+                confirmText={t('userView.delete')}
+                cancelText={t('common.cancel')}
                 onConfirm={confirmDelete}
                 onCancel={() => setDeletingRequest(null)}
-            />
+/>
         </div>
     )
 }

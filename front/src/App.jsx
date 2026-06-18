@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useRequestStore } from '@/store/useRequestStore'
 import { RoleSwitcher } from '@/components/RoleSwitcher'
 import { ThemeToggle } from '@/ui/ThemeToggle/index.jsx'
+import { LangSwitch } from '@/ui/LangSwitch/index.jsx'
 import { useThemeStore } from '@/store/useThemeStore'
 import { UserView } from '@/pages/UserView'
 import { ManagerView } from '@/pages/ManagerView'
@@ -29,6 +30,7 @@ function App() {
 
                     <div className="flex items-center gap-4">
                         <RoleSwitcher />
+                        <LangSwitch />
                         <ThemeToggle />
                     </div>
                 </div>
