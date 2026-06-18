@@ -1,10 +1,18 @@
+import { useEffect } from 'react'
 import { useRequestStore } from '@/store/useRequestStore'
 import { RoleSwitcher } from '@/components/RoleSwitcher'
+import { ThemeToggle } from '@/ui/ThemeToggle/index.jsx'
+import { useThemeStore } from '@/store/useThemeStore'
 import { UserView } from '@/pages/UserView'
 import { ManagerView } from '@/pages/ManagerView'
 
 function App() {
     const role = useRequestStore((s) => s.role)
+    const theme = useThemeStore((s) => s.theme)
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme)
+    }, [theme])
 
     return (
         <div className="min-h-screen">
@@ -18,7 +26,11 @@ function App() {
                         />
                         <h1 className="text-xl font-bold">Mini Request System</h1>
                     </div>
-                    <RoleSwitcher />
+
+                    <div className="flex items-center gap-4">
+                        <RoleSwitcher />
+                        <ThemeToggle />
+                    </div>
                 </div>
             </header>
 

@@ -6,15 +6,24 @@ import { sortRequests } from '@/utils/sortRequests'
 import { SORT_OPTIONS } from '@/constants'
 import { Button } from '@/ui/Button'
 import { Select } from '@/ui/Select'
+import { ConfirmModal } from '@/ui/Modal'
 
 export const UserView = () => {
     const requests = useRequestStore((s) => s.requests)
     const deleteRequest = useRequestStore((s) => s.deleteRequest)
 
     const [editingRequest, setEditingRequest] = useState(null)
+    const [deletingRequest, setDeletingRequest] = useState(null)
     const [sort, setSort] = useState('newest')
 
     const visibleRequests = sortRequests(requests, sort)
+
+    const confirmDelete = () => {
+        if (deletingRequest) {
+            deleteRequest(deletingRequest.id)
+            setDeletingRequest(null)
+        }
+    }
 
     return (
         <div className="flex flex-col gap-6">
@@ -48,7 +57,7 @@ export const UserView = () => {
                             )}
                             <Button
                                 variant="error"
-                                onClick={() => deleteRequest(req.id)}
+                                onClick={() => setDeletingRequest(req)}
                             >
                                 Видалити
                             </Button>
@@ -56,6 +65,18 @@ export const UserView = () => {
                     )}
                 />
             </div>
+
+            <ConfirmModal
+                open={!!deletingRequest}
+                title="Видалити заявку?"
+                message={
+                    deletingRequest
+                        ? `Ви впевнені що хочете видалити заявку «${deletingRequest.title}» ?`
+                        : ''
+                }
+                onConfirm={confirmDelete}
+                onCancel={() => setDeletingRequest(null)}
+            />
         </div>
     )
 }
