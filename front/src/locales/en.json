@@ -1,4 +1,9 @@
 {
+    "role": {
+        "user": "User",
+        "manager": "Manager"
+    },
+    
     "common": {
         "cancel": "Cancel"
     },
@@ -51,8 +56,6 @@
     "logs": {
         "title": "Action logs",
         "empty": "No records yet",
-        "clear": "Clear",
-        "roleUser": "User",
-        "roleManager": "Manager"
+        "clear": "Clear"
     }
 }

@@ -5,8 +5,8 @@ import { Button } from '@/ui/Button'
 import { formatDateTime } from '@/utils/date'
 
 const ROLE_LABEL = {
-    user: 'logs.roleUser',
-    manager: 'logs.roleManager',
+    user: 'role.user',
+    manager: 'role.manager',
 }
 
 export const LogsView = () => {
