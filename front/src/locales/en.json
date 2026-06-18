@@ -57,5 +57,9 @@
         "title": "Action logs",
         "empty": "No records yet",
         "clear": "Clear"
+    },
+
+    "requestList": {
+        "empty": "No requests yet"
     }
 }
